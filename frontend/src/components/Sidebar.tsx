@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux"
 import { sidebarLinks } from "../constantData/navLinks"
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { logout } from "../slices/auth"
 import { RiLogoutBoxLine } from "react-icons/ri";
 
 
 const Sidebar = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   return (
     <div className=" flex flex-col justify-between px-3 py-4 h-[88vh] border-3 w-[15%] border-r-2 border-btn-main">
@@ -27,7 +28,10 @@ const Sidebar = () => {
              }
       </div>
       <div className="flex flex-col border-t-2 border-btn-lmain pt-8">
-        <button onClick={() => dispatch(logout())} 
+        <button onClick={() => {
+          dispatch(logout())
+          navigate('/')
+        }} 
          className=" bg-btn-main rounded-md p-2  text-white font-medium self-center hover:bg-blue-950">
           <div className=" flex gap-3 w-full items-center">
           <RiLogoutBoxLine/>
