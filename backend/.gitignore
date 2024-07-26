@@ -1,0 +1,34 @@
+# Environment configuration files
+.env
+
+# Compiled binaries
+*.exe
+*.dll
+*.o
+*.out
+
+# Dependency directories
+node_modules/
+venv/
+target/
+
+# Temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Configuration files with sensitive information
+config.ini
+secrets.json
+
+# Logs and debugging output
+logs/
+debug.log
+
+# IDE/Editor settings
+.vscode/
+.idea/
+
+#ignore dist folder
+dist

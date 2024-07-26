@@ -1,0 +1,24 @@
+/* global.css */
+
+/* For WebKit browsers (Chrome, Safari, and the latest Edge) */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color of the scrollbar track */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1e40af; /* Color of the scrollbar handle */
+    border-radius: 6px; /* Rounded corners for the handle */
+    border: none; /* No border */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1c3d7a; /* Darker color on hover */
+  }
+  
