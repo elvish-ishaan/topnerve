@@ -37,7 +37,6 @@ const Login = () => {
     <div className=' h-screen p-4 w-[100vw] '>
         <div className=' flex justify-between p-4 gap-10 w-full '>
            <div className=' p-10 w-[30%] '>
-               <h1>hldfsdljfslkdfjks</h1>
                <h2 className=' font-bold text-3xl dark:text-white'>Welcom Back! 👋</h2>
                <p className=' text-btn-lmain'>Log in to continue where you left</p>
                 <div className=' flex flex-col m-8 gap-3 w-full'>
