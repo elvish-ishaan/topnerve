@@ -17,6 +17,7 @@ const Navbar = () => {
     localStorage.setItem('tp-theme','dark')
   }else{
     document.documentElement.classList.remove('dark')
+    localStorage.setItem('tp-theme', 'light')
   }
 
 

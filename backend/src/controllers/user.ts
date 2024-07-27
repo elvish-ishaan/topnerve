@@ -256,7 +256,6 @@ export const updatePassword = async (req: Request, res: Response) => {
                  { $set: { password: updatedHashedPassword } },
                  { new: true } // Return the updated document
              );
-             (updatedUser, 'updated user')
              // Check if user was found and updated
              if (!updatedUser) {
                  return res.status(404).json({

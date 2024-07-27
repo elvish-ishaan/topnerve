@@ -5,6 +5,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { GoCommentDiscussion } from "react-icons/go";
 import { GrAchievement } from "react-icons/gr";
+import { IoNewspaperOutline } from "react-icons/io5";
 
 
 
@@ -43,6 +44,11 @@ export const sidebarLinks: any = [
     title: 'Leaderboard',
     Path: '/leaderboard',
     icon: GrAchievement
+  },
+  {
+    title: 'Test History',
+    Path: '/my-tests',
+    icon: IoNewspaperOutline
   },
   {
     title: 'Settings',

@@ -8,6 +8,7 @@ import ResetPassword from '../pages/ResetPassword'
 import ResetPassRec from '../pages/ResetPassRec'
 import AboutUs from '../pages/AboutUs'
 import ContactUs from '../pages/ContactUs'
+import NotFound from '../pages/NotFound'
 
 
 const OpenRoutes = () => {
@@ -22,6 +23,7 @@ const OpenRoutes = () => {
              <Route path='/otp-verification' element={<Otp/>}/>
              <Route path='/reset-password' element={<ResetPassword/>}/>
              <Route path='/reset-password/:token' element={<ResetPassRec/>}/>
+             <Route path='*' element={<NotFound/>}/>
         </Routes >
         <Outlet/>
     </div>
