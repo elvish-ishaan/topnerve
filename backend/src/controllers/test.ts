@@ -6,10 +6,6 @@ import { AdditionalDetails } from "../models/additionalDetails";
 import { badges } from "../utils/milestones/badges";
 
 
-
-
-
-
 //get test history
 export const getTestHistory = async (req: Request, res: Response) => {
   //fix zod validation

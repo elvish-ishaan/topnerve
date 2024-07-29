@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import apiConnector from '../apiConnector'
 import { course } from '../backendUrls/course'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 const Practice = () => {
   const params = useParams()
   const navigate = useNavigate()
   const [moduleData , setModuleData] = useState([])
+  const [loading, setLoading] = useState<boolean>(false)
+
   useEffect(() => {
     const fetchModuleData = async () => {
+      setLoading(true)
       const res = await apiConnector('GET', course.getSpecCourse + params.id, {'Content-Type': 'application/json'}) 
+      setLoading(false)
       setModuleData(res?.data?.subjects?.courseSubjects)
     }
     fetchModuleData()
@@ -17,7 +22,9 @@ const Practice = () => {
   return (
     <section className=' h-screen p-8 w-full'>
       <h1 className=' text-btn-main text-3xl font-medium text-center'>Select Subject</h1>
-      <div className=' p-5 mt-5'>
+      {
+        loading ? <LoadingSpinner/> :
+        <div className=' p-5 mt-5'>
           <div className=' grid grid-cols-3 w-full'>
                 {
                   moduleData?.map((chapter, index) => {
@@ -32,6 +39,7 @@ const Practice = () => {
                 }
           </div>
       </div>
+      }
 
     </section>
   )

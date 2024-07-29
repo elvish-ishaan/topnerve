@@ -2,14 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import apiConnector from '../apiConnector';
 import { course } from '../backendUrls/course';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Chapters = () => {
   const param = useParams();
   const navigate = useNavigate()
   const[chapters,setChapters] = useState([])
+  const [loading, setLoading] = useState<boolean>(false)
   useEffect(()=>{
     const fetchChapters = async()=> {
+      setLoading(true)
       const res = await apiConnector('GET', course.getChapters + param.id, {'Content-Type': 'application/json'})
+      setLoading(false)
       setChapters(res?.data?.chapters?.chapterNames)
     }
     fetchChapters()
@@ -17,7 +21,9 @@ const Chapters = () => {
   return (
     <section className=' h-screen p-8 w-full'>
       <h1 className=' text-btn-main text-3xl font-medium text-center'>Select Chapter</h1>
-      <div className=' p-5 mt-5'>
+      {
+        loading ? <LoadingSpinner/> :
+        <div className=' p-5 mt-5'>
           <div className=' grid grid-cols-3 w-full'>
                 {
                   chapters.map((chapter, index) => {
@@ -32,6 +38,7 @@ const Chapters = () => {
                 }
           </div>
       </div>
+      }
 
     </section>
   )
