@@ -17,7 +17,7 @@ const Sidebar = () => {
                  return (
                    <NavLink  className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? " bg-btn-main font-medium rounded-md px-3 py-2 text-white flex gap-3 items-center hover:bg-blue-950" :
-                    "font-medium rounded-md px-3 py-2 dark:text-white flex gap-3 items-center hover:bg-blue-950"
+                    "font-medium rounded-md px-3 py-2 dark:text-white flex gap-3 items-center hover:bg-blue-300 dark:hover:bg-blue-950"
                   }
                     key={index} to={link.Path}>
                       <Icon/>
