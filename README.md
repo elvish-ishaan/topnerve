@@ -57,7 +57,7 @@ We welcome contributions from the community! To contribute to CMS, follow these 
    > - `npm run format:check` to format the code
    > - `npm run format:fix` to fix the formatting
 4. Push to the branch (`git push origin feature/fooBar`).
-5. Create a new Pull Request.
+5. Create  new Pull Request.
 
 For major changes, please open an issue first to discuss what you would like to change.
 
