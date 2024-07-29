@@ -6,6 +6,8 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { GoCommentDiscussion } from "react-icons/go";
 import { GrAchievement } from "react-icons/gr";
 import { IoNewspaperOutline } from "react-icons/io5";
+import { IoIosGlobe } from "react-icons/io";
+import { LuMailQuestion } from "react-icons/lu";
 
 
 
@@ -64,7 +66,8 @@ export const sidebarLinks: any = [
     title: 'Community',
     Path: '/community',
     icon: GoCommentDiscussion
-  }
+  },
+
 ];
 
 export const infoLinks = [

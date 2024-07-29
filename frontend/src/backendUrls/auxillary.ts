@@ -1,3 +1,4 @@
 export const auxillary = {
-    postTalkExport: '/aux/talkexpert'
+    postTalkExport: '/aux/talkexpert',
+    feedback: '/aux/featurerequest'
 }
