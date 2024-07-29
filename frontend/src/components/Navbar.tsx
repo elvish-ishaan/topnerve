@@ -17,15 +17,16 @@ const Navbar = () => {
     localStorage.setItem('tp-theme','dark')
   }else{
     document.documentElement.classList.remove('dark')
+    localStorage.setItem('tp-theme', 'light')
   }
 
 
   return (
-    <nav className=' flex p-5 border-b-btn-main border-b-2 bg-transparent'>
+    <nav className=' flex p-3 border-b-btn-main border-b-2 bg-transparent'>
         <div className=' flex justify-between w-full px-5'>
              <div className=' flex gap-14 align-baseline'>
                 <div className=' flex gap-2 items-baseline '>
-                   <img className=' size-10' src={logo} alt="banner" />
+                   <img className=' size-8' src={logo} alt="banner" />
                    <p className=' relative top-0 font-medium tracking-wider text-2xl self-center dark:text-white'>TOPNERVE</p>
                 </div>
                 {/* rerturn navbar links if user logged out */}

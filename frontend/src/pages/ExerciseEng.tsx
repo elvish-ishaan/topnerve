@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import LoadingSpinner from '../components/LoadingSpinner';
 import LoadingButton from '../components/LoadingButton';
 import QuesSlider from '../components/QuesSlider';
+import toast from 'react-hot-toast';
 
 
 const ExerciseEng = () => {
@@ -129,7 +130,11 @@ const ExerciseEng = () => {
     setLoading(true)
     const res = await apiConnector('POST', course.createTest, testReport, {'Content-Type': 'application/json'})
     setLoading(false)
+    if( res?.data?.message !== true) {
+      toast.error('Submission Failed')
+    }
     setTest(res?.data?.test)
+    toast.success('Submitted Sucessfully')
     
   };
 
@@ -173,7 +178,7 @@ const ExerciseEng = () => {
           {/* header div */}
           <div className="flex justify-between border-b-2 border-btn-main p-2 w-full">
             <Timer setTime={setTime} time={time} />
-            <div className="flex gap-3">
+            <div className="flex gap-3 items-center justify-center">
               <button
                 className="h-10 px-4 py-2 rounded-md border-2 border-btn-main dark:text-white font-medium hover:bg-blue-950"
                 onClick={() => setModalOpen(true)}
@@ -181,15 +186,21 @@ const ExerciseEng = () => {
                 Instructions
               </button>
               {
-                loading ? <LoadingButton/> :
-                <button
-                className="h-10 px-4 py-2 rounded-md bg-btn-main text-white font-medium hover:bg-blue-950"
-                onClick={handleSubmit}
-                disabled={count < questions.length - 1}
-              >
-                Submit
-              </button>
+                count == questions.length - 1 ? <div>
+                  {
+                  loading ? <LoadingButton/> :
+                  <button
+                  className="h-10 px-4 py-2 rounded-md bg-btn-main text-white font-medium hover:bg-blue-950"
+                  onClick={handleSubmit}
+                  disabled={count < questions.length - 1}
+                >
+                  Submit
+                </button>
+                }
+                </div>
+                : <p>hl</p>
               }
+              {/* jkl */}
             </div>
           </div>
 

@@ -5,15 +5,38 @@ import { any, string, z } from 'zod'
 import { AdditionalDetails } from "../models/additionalDetails";
 import { badges } from "../utils/milestones/badges";
 
+
+//get test history
+export const getTestHistory = async (req: Request, res: Response) => {
+  //fix zod validation
+  try {
+    const user = await User.findById(req?.body?.userId).populate('tests')
+    if(!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'No User found',
+      });
+    }
+    res.status(200).json({
+      success: true,
+      message: 'Tests fetched successfully',
+      tests: user?.tests
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 //create test
 export const createTest = async (req: Request, res: Response) => {
     try {
         const testSchema = z.object({
             questionBankId: z.string(),
-            score: z.number().min(0),
+            score: z.number(),
             totalQues: z.number(),
             totalTime: z.number().min(0),
-            avgTime: z.number().min(0),
+            avgTime: z.number(),
             timeSpent: z.array(z.number()).min(0),
             userId: z.string(),
           });
@@ -102,3 +125,4 @@ export const getTest = async (req: Request, res: Response) => {
         test
     })
 }
+

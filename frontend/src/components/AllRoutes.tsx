@@ -19,6 +19,8 @@ import CreateModule from '../pages/CreateModule'
 import PaymentSuccess from '../pages/PaymentSuccess'
 import PaymentFailure from '../pages/PaymentFailed'
 import CreateSchedule from '../pages/CreateSchedule'
+import NotFound from '../pages/NotFound'
+import MyTests from '../pages/MyTests'
 
 
 
@@ -40,9 +42,11 @@ const AllRoutes = () => {
              <Route path='/leaderboard' element={<Leaderboard/>}/> 
              <Route path='/create-module' element={<CreateModule/>}/>
              <Route path='/community' element={<Community/>}/>
+             <Route path='/my-tests' element={<MyTests/>}/>
              <Route path='/payment/success' element={<PaymentSuccess/>}/>    
              <Route path='/payment/failed' element={<PaymentFailure/>}/>
              <Route path='/schedules/add-schedule' element={<CreateSchedule/>}/>  
+             <Route path='*' element={<NotFound/>}/>
         </Routes >
     
   )
