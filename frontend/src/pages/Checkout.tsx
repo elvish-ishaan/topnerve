@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import apiConnector from '../apiConnector'
 import { course } from '../backendUrls/course'
 import { useParams } from 'react-router'
@@ -13,7 +13,7 @@ const Checkout = () => {
 
     useEffect(()=> {
         const fetchModuleData = async () => {
-            const res = await apiConnector('GET', course.getCourseWithId + `${params.id}`, {'Content-Type': 'application/json'})
+            const res:any = await apiConnector('GET', course.getCourseWithId + `${params.id}`, {'Content-Type': 'application/json'})
             setModuleDetails(res?.data?.courseDetails)
         }
         fetchModuleData()
@@ -23,7 +23,7 @@ const Checkout = () => {
         userId: user._id
     }
     const handleCheckout = async () => {
-        const orderRes = await apiConnector('POST', payment.checkout,body, {'Content-Type': 'application/json'} )
+        const orderRes: any = await apiConnector('POST', payment.checkout,body, {'Content-Type': 'application/json'} )
         const order = await orderRes?.data?.genOrder
         //handling payment
     const options = {

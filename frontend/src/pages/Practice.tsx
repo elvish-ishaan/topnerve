@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import apiConnector from '../apiConnector'
 import { course } from '../backendUrls/course'
@@ -7,13 +7,13 @@ import LoadingSpinner from '../components/LoadingSpinner'
 const Practice = () => {
   const params = useParams()
   const navigate = useNavigate()
-  const [moduleData , setModuleData] = useState([])
+  const [moduleData , setModuleData] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchModuleData = async () => {
       setLoading(true)
-      const res = await apiConnector('GET', course.getSpecCourse + params.id, {'Content-Type': 'application/json'}) 
+      const res: any = await apiConnector('GET', course.getSpecCourse + params.id, {'Content-Type': 'application/json'}) 
       setLoading(false)
       setModuleData(res?.data?.subjects?.courseSubjects)
     }

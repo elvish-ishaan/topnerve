@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import apiConnector from '../apiConnector'
 import { leaderboard } from '../backendUrls/leaderboard'
 import profile from '../assets/testimonils/t1.png'
@@ -6,7 +6,6 @@ import { Avatar } from '@mui/material'
 import one from '../assets/awards/one.png'
 import two from '../assets/awards/two.png'
 import three from '../assets/awards/three.png'
-import LoadingButton from '../components/LoadingButton'
 import LoadingSpinner from '../components/LoadingSpinner'
 
 
@@ -15,7 +14,7 @@ const Leaderboard = () => {
     const [rankers, setRankers] = useState<string[]>([])
     useEffect(()=> {
       const fetchRankers = async () => {
-        const res = await apiConnector('GET', leaderboard.getRankers, {'Content-Type': 'application/json'})
+        const res: any = await apiConnector('GET', leaderboard.getRankers, {'Content-Type': 'application/json'})
         setRankers( (prev) => [...prev, res?.data?.rankers])
       }
       fetchRankers()

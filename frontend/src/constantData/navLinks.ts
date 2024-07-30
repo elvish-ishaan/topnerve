@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { IoHomeOutline } from "react-icons/io5";
 import { IoLibraryOutline } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -6,8 +5,6 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { GoCommentDiscussion } from "react-icons/go";
 import { GrAchievement } from "react-icons/gr";
 import { IoNewspaperOutline } from "react-icons/io5";
-import { IoIosGlobe } from "react-icons/io";
-import { LuMailQuestion } from "react-icons/lu";
 
 
 

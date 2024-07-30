@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import otpLogo from '../assets/auth/otp.png';
 import apiConnector from '../apiConnector';
 import { auth } from '../backendUrls/auth';

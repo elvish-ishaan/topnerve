@@ -1,6 +1,5 @@
 // src/components/PaymentFailure.jsx
 
-import React from 'react';
 import { useNavigate } from 'react-router';
 import { ImCross } from "react-icons/im";
 

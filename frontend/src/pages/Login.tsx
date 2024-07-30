@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import loginLogo from '../assets/auth/login.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../asyncActions/auth'
 import { useNavigate } from 'react-router'
 import toast from 'react-hot-toast'
 const Login = () => {
-   const { user, token, error } = useSelector((state: any) => state.auth)   //fix type
+   const { token, error } = useSelector((state: any) => state.auth)   //fix type
    const navigate = useNavigate()
    const disptach = useDispatch()
    const [formData, setFormData] = useState({

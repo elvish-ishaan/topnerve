@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import Graph from '../components/Graph'
 import { BsCalendar2DateFill } from "react-icons/bs";
 import { FaChevronDown } from "react-icons/fa";
-import { FaRegClock } from "react-icons/fa6";
 import notFound from '../assets/dashboard/notFound.png'
 import { useNavigate } from 'react-router';
 import apiConnector from '../apiConnector';
 import { overview } from '../backendUrls/overview';
 import { useSelector } from 'react-redux';
-import { shcedule } from '../backendUrls/schedule';
 import { MdOutlineTask } from "react-icons/md";
 import { FaRegHandPointRight } from "react-icons/fa6";
 import { FaRegBookmark } from "react-icons/fa6";
+import { IRootState } from '../Store';
 
 
 
 
 const Overview = () => {
-    const { user } = useSelector((state) => state.auth)
+    const { user } = useSelector((state: IRootState) => state.auth)
     const [questionData, setQuestionData] = useState<number[]>([])
-    const schedules = JSON.parse(localStorage.getItem('tp-tasks')) 
+    const schData = localStorage.getItem('tp-tasks')
+    // @ts-ignore  //fix it
+    const schedules = JSON.parse(schData)
     const navigate = useNavigate()
     //get graph data
     useEffect(()=>{
@@ -27,7 +28,8 @@ const Overview = () => {
         const bodyToSend = {
          userId:user._id 
         }
-        const res = await apiConnector("POST", overview.getGraphData, bodyToSend )
+        const res: any = await apiConnector("POST", overview.getGraphData, bodyToSend )
+        console.log(res)
         setQuestionData(res?.data?.data)
      }
      fetchGraphData()
@@ -57,6 +59,7 @@ const Overview = () => {
            </div>
              <div className=' w-[700px] h-[300px]'>
              {
+              //@ts-ignore
                questionData.length == 0 ? <p className=' text-center relative top-32 font-semibold'>No data Found</p> : <Graph noOfQuestions={questionData}/>
              }
              </div>
@@ -96,7 +99,7 @@ const Overview = () => {
                     // if there are shcdules render or show not found
                      schedules.length > 0 ? <div className=' py-2'>
                         {
-                          schedules?.map((task) => <div className=' w-full flex justify-between px-4 py-2 items-center border-b border-btn-lmain'>
+                          schedules?.map((task: any) => <div className=' w-full flex justify-between px-4 py-2 items-center border-b border-btn-lmain'>
                             <FaRegHandPointRight className=' text-btn-main'/>
                             <span  className=' text-lg dark:text-white'>{task.name}</span>
                             <span className=' font-bold text-xl dark:text-white'>{task.time}</span>

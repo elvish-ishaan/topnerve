@@ -1,4 +1,3 @@
-import React from 'react';
 import courseTemp from '../assets/dashboard/Screenshot 2024-06-28 141015.png';
 import { FaRupeeSign } from "react-icons/fa";
 import { AiOutlineLike } from "react-icons/ai";

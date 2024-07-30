@@ -1,4 +1,3 @@
-import React from 'react';
 
 const ContactUs = () => {
   return (
@@ -25,7 +24,7 @@ const ContactUs = () => {
           
           <div>
             <label htmlFor="message" className="block text-btn-lmain text-lg font-medium mb-2">Message</label>
-            <textarea id="message" rows="6" className="w-full p-3 rounded-lg bg-slate-800 text-white focus:ring-2 focus:ring-btn-main"></textarea>
+            <textarea id="message" rows={6} className="w-full p-3 rounded-lg bg-slate-800 text-white focus:ring-2 focus:ring-btn-main"></textarea>
           </div>
           
           <div className="text-center">

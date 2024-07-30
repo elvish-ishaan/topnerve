@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, FC } from 'react';
+import {  useEffect, useRef, FC } from 'react';
 import { FaClock } from "react-icons/fa6";
 
 
@@ -7,6 +7,7 @@ const Timer: FC = ( props ) => {
   const timerRef = useRef<number | null>(null);
   useEffect(() => {
     timerRef.current = setInterval(() => {
+      // @ts-ignore
       props.setTime((prevTime: any) => prevTime + 1);
     }, 1000);
     return () => {
@@ -26,7 +27,10 @@ const Timer: FC = ( props ) => {
     <div className="flex flex-col items-center justify-center">
       <div className="text-lg flex justify-center items-center gap-3 dark:text-white">
         <FaClock />
-        {formatTime(props.time)}
+        {
+          // @ts-ignore
+          formatTime(props?.time)
+        }
       </div>
     </div>
   );

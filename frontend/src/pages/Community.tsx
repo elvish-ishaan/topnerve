@@ -1,4 +1,3 @@
-import React from 'react'
 import commingSoon from '../assets/dashboard/comming.png'
 
 const Community = () => {

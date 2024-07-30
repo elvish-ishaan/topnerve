@@ -16,7 +16,6 @@ import toast from 'react-hot-toast'
 function App() {
    const { token } = useSelector((state: any) => state.auth)      //fix any type
    const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
-   const [isSuccessSubmit, setSuccessSubmit] = useState<boolean>(false)
    const theme = localStorage.getItem('tp-theme');
    if(theme) {
       document.documentElement.classList.add(theme)
@@ -34,8 +33,7 @@ function App() {
    }
    //hanlding sending feedback
    const handleFeedback = async () => {
-      const res = await apiConnector("POST", auxillary.feedback, data)
-      console.log(res)
+      const res: any = await apiConnector("POST", auxillary.feedback, data)
       if(res?.data?.success) {
          toast.success('Feedback Captured')
          setIsOpenModal(false)

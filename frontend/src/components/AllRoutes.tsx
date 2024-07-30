@@ -1,6 +1,4 @@
-import React from 'react'
-import { Router, Routes, Route } from 'react-router'
-import Dashboard from '../pages/Dashboard'
+import { Routes, Route } from 'react-router'
 import Analysis from '../pages/Analysis'
 import Overview from '../pages/Overview'
 import ExerciseEng from '../pages/ExerciseEng'

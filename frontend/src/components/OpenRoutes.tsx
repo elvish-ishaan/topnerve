@@ -1,4 +1,3 @@
-import React from 'react'
 import { Routes, Route, Outlet } from 'react-router'
 import Login from '../pages/Login'
 import Signup from '../pages/Signup'

@@ -1,4 +1,3 @@
-import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import t1 from '../assets/testimonils/t1.png'

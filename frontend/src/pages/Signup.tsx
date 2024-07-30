@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import rocketLogo from '../assets/auth/launch.png'
-import { UseDispatch, useDispatch } from 'react-redux'
-import { signup } from '../asyncActions/auth';
+import {  useDispatch } from 'react-redux'
 import { setSignupData } from '../slices/auth';
 import { useNavigate } from 'react-router';
 

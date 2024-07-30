@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import apiConnector from '../apiConnector'
 import { course } from '../backendUrls/course'
 import toast from 'react-hot-toast'
@@ -26,7 +26,7 @@ const PubModule = ({uploadedSub}: {
  //publish course
  const Publish = async () => {
     setLoading(true)
-    const res = await apiConnector('POST', course.createCourse, module, {'Content-Type': 'application/json'})
+    const res: any = await apiConnector('POST', course.createCourse, module, {'Content-Type': 'application/json'})
     setLoading(false)
     if(res?.data?.success == true) {
       toast.success('Module Published')

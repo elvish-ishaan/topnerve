@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Timer from '../components/Timer';
-import { Slider } from '@mui/material';
 import Modal from '@mui/material/Modal';
 import InstructionPoints from '../components/InstructionData';
 import { useNavigate, useParams } from 'react-router';
@@ -18,15 +17,15 @@ const ExerciseEng = () => {
   const params = useParams();
   const navigate = useNavigate()
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
-  const [questions, setQuestions] = useState([]);
-  const [count, setCount] = useState(0);
+  const [questions, setQuestions] = useState<any[]>([]);
+  const [count, setCount] = useState<number>(0);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [explainModal, setExplainModal] = useState(false);
   const [score, setScore] = useState(0);
   const [timeSpent, setTimeSpent] = useState<number[]>([]);
   const [startTime, setStartTime] = useState<number>(Date.now());
   const [test, setTest] = useState<string>('')
-  const [time, setTime] = useState(0)
+  const [time, setTime] = useState<any>(0)
   const [quesLoading, setQuesLoading] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   const [showExpBtn, setShowExpBtn] = useState<boolean>(false)
@@ -34,7 +33,7 @@ const ExerciseEng = () => {
   useEffect(() => {
     const fetchQuestions = async () => {
       setQuesLoading(true)
-      const res = await apiConnector('GET', course.getQuestionBank + params.questbankid, {
+      const res: any = await apiConnector('GET', course.getQuestionBank + params.questbankid, {
         'Content-Type': 'application/json',
       });
       setQuesLoading(false)
@@ -110,8 +109,8 @@ const ExerciseEng = () => {
     }
   };
   // Calculate total time spent and average time per question for analytics
-  const totalTime = timeSpent.reduce((acc, curr) => acc + curr, 0);
-  const avgTime = totalTime / (timeSpent.length || 1);
+  // const totalTime = timeSpent.reduce((acc, curr) => acc + curr, 0);
+  // const avgTime = totalTime / (timeSpent.length || 1);
 
   // Handle submit
   const handleSubmit = async () => {
@@ -128,7 +127,7 @@ const ExerciseEng = () => {
       totalQues: questions.length
     };
     setLoading(true)
-    const res = await apiConnector('POST', course.createTest, testReport, {'Content-Type': 'application/json'})
+    const res: any = await apiConnector('POST', course.createTest, testReport, {'Content-Type': 'application/json'})
     setLoading(false)
     if( res?.data?.message !== true) {
       toast.error('Submission Failed')
@@ -140,7 +139,9 @@ const ExerciseEng = () => {
 
  // Redirect to result page when test is set
  useEffect(() => {
+  // @ts-ignore
   if (test && test._id) {
+    //@ts-ignore
     navigate(`/practice/result/${test._id}`);
   }
 }, [test, navigate]);
@@ -177,7 +178,10 @@ const ExerciseEng = () => {
 
           {/* header div */}
           <div className="flex justify-between border-b-2 border-btn-main p-2 w-full">
-            <Timer setTime={setTime} time={time} />
+           {
+            // @ts-ignore
+             <Timer setTime={setTime} time={time} />
+           }
             <div className="flex gap-3 items-center justify-center">
               <button
                 className="h-10 px-4 py-2 rounded-md border-2 border-btn-main dark:text-white font-medium hover:bg-blue-950"
@@ -200,7 +204,7 @@ const ExerciseEng = () => {
                 </div>
                 : <p>hl</p>
               }
-              {/* jkl */}
+              
             </div>
           </div>
 

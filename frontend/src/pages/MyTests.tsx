@@ -5,6 +5,7 @@ import { FaArrowCircleRight } from "react-icons/fa";
 import { useSelector } from 'react-redux';
 import apiConnector from '../apiConnector';
 import { test as testUrl } from '../backendUrls/test';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 interface Test {
   avgTime: number;
@@ -55,7 +56,7 @@ const MyTests: React.FC = () => {
       const bodyToSend = {
         userId: user._id,
       };
-      const res = await apiConnector("POST", testUrl.getTestHistory, bodyToSend);
+      const res: any = await apiConnector("POST", testUrl.getTestHistory, bodyToSend);
       setLoading(false);
       setTests(res?.data?.tests || []);
     };
@@ -66,11 +67,14 @@ const MyTests: React.FC = () => {
   return (
     <div className="w-full p-8">
       <h2 className="text-3xl font-medium text-btn-main dark:text-gray-300 mb-8">Test Results</h2>
-      <div className="space-y-4">
+      {
+        loading ? <LoadingSpinner/> :
+        <div className="space-y-4">
         {tests.map(test => (
           <TestCard key={test._id} test={test} />
         ))}
       </div>
+      }
     </div>
   );
 };

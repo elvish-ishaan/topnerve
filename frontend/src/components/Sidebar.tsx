@@ -12,7 +12,7 @@ const Sidebar = () => {
     <div className=" flex flex-col justify-between px-3 py-4 h-[88vh] border-3 w-[15%] border-r-2 border-btn-main">
       <div className=" flex flex-col gap-3 my-2">   
          {
-               sidebarLinks.map((link, index) => {
+               sidebarLinks.map((link: any, index: number) => {
                 const Icon = link.icon;
                  return (
                    <NavLink  className={({ isActive, isPending }) =>

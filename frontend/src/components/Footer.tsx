@@ -1,4 +1,3 @@
-import React from 'react'
 import { infoLinks } from '../constantData/navLinks'
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
