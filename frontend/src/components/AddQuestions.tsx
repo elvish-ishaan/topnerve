@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import apiConnector from '../apiConnector'
 import { course } from '../backendUrls/course'
 import LoadingButton from './LoadingButton'
 import toast from 'react-hot-toast'
 
-interface Question {
-    question: string,
-    optionOne: string,
-    optionTwo: string,
-    optionThree: string,
-    optionFour: string,
-    answer: string,
-    explaination?: string
-}
-
+//@ts-ignore
 export const AddQuestions = ({ setUploadedQuesId }) => {
     const [loading, setLoading] = useState<boolean>(false)
     const [questionBag, setQuesionBag] = useState<any[]>([])
@@ -34,7 +25,7 @@ export const AddQuestions = ({ setUploadedQuesId }) => {
         })
     }
     //hanlding adding quesitons
-    const addQuestion =  (event: any) => {
+    const addQuestion =  () => {
         const newQuestion = {
             question: question.question,
             options: [question.optionOne, question.optionTwo, question.optionThree, question.optionFour],
@@ -50,11 +41,11 @@ export const AddQuestions = ({ setUploadedQuesId }) => {
             questionBag
         }
         setLoading(true)
-        const res = await apiConnector('POST', course.addQuestions, bodyToSend, {'Content-Type': 'application/json'}) 
+        const res: any = await apiConnector('POST', course.addQuestions, bodyToSend, {'Content-Type': 'application/json'}) 
         setLoading(false)
         if(res?.data?.success == true) {
             toast.success('Question Added')
-            setUploadedQuesId(prevState => [
+            setUploadedQuesId((prevState: any) => [
                 ...prevState,
                 res?.data?.createdAns?._id
             ]);

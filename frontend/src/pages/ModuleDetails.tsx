@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import apiConnector from '../apiConnector'
 import { course } from '../backendUrls/course'
 import { useNavigate, useParams } from 'react-router'
@@ -21,7 +21,7 @@ const ModuleDetails = () => {
     useEffect(()=> {
         const fetchModuleData = async () => {
             setLoading(true)
-            const res = await apiConnector('GET', course.getCourseWithId + `${params.id}`, {'Content-Type': 'application/json'})
+            const res: any = await apiConnector('GET', course.getCourseWithId + `${params.id}`, {'Content-Type': 'application/json'})
             setLoading(false)
             setModuleDetails(res?.data?.courseDetails)
         }

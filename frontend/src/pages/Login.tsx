@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import loginLogo from '../assets/auth/login.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../asyncActions/auth'
 import { useNavigate } from 'react-router'
 import toast from 'react-hot-toast'
 const Login = () => {
-   const { user, token, error } = useSelector((state: any) => state.auth)   //fix type
+   const { token, error } = useSelector((state: any) => state.auth)   //fix type
    const navigate = useNavigate()
    const disptach = useDispatch()
    const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ const Login = () => {
    
 
   return (
-    <div className=' h-screen p-4 w-[100vw] '>
+    <div className=' h-screen p-4 w-[95vw] '>
         <div className=' flex justify-between p-4 gap-10 w-full '>
            <div className=' p-10 w-[30%] '>
                <h2 className=' font-bold text-3xl dark:text-white'>Welcom Back! 👋</h2>

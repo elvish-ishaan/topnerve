@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface LengthComponentProps {
   count: number;
@@ -6,7 +6,8 @@ interface LengthComponentProps {
 }
 
 const QuesSlider: React.FC<LengthComponentProps> = ({ count, totalLength }) => {
-  const [isCompleted, setIsCompleted] = useState<boolean>(false)    //fix make paper smach on completion 
+
+  // const [isCompleted, setIsCompleted] = useState<boolean>(false)    //fix make paper smach on completion 
   const fullLength = totalLength -1;
   const length = (count / fullLength ) * 100; 
 

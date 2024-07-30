@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import { IoHomeOutline } from "react-icons/io5";
 import { IoLibraryOutline } from "react-icons/io5";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -64,7 +63,8 @@ export const sidebarLinks: any = [
     title: 'Community',
     Path: '/community',
     icon: GoCommentDiscussion
-  }
+  },
+
 ];
 
 export const infoLinks = [

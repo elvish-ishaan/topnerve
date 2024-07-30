@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import apiConnector from '../apiConnector';
 import { course } from '../backendUrls/course';
@@ -9,8 +9,19 @@ import { auxillary } from '../backendUrls/auxillary';
 import LoadingButton from '../components/LoadingButton';
 import successTick from '../assets/mainPage/successTick.png'
 
+interface Course {
+  _id: string;
+  title: string;
+  courseSubjects: string[];
+  enrolledUsers: any[]; 
+  price: number;
+  status: string;
+  tags: string[];
+  __v: number;
+}
+
 const BuyModules = () => {
-  const [courses, setCoursesData] = useState([]);
+  const [courses, setCoursesData] = useState<Course[]>([]);
   const [openModal, setOpenModal] = useState<boolean>(false)
   
   useEffect(() => {
@@ -18,6 +29,7 @@ const BuyModules = () => {
       try {
         const loadToast = toast.loading('Loading')
         const res: any = await apiConnector('GET', course.getAllCourse, { 'Content-Type': 'application/json' });
+        console.log(res)
         toast.dismiss(loadToast)
         setCoursesData(res.data.courses);
       } catch (error) {
@@ -34,7 +46,7 @@ const BuyModules = () => {
  const handleExpertTalk = async (e: any) => {
   e.preventDefault()
   //validation check
-  if (name.length === 0 || mobile.length < 10) {
+  if (name?.length === 0 || mobile?.length < 10) {
     toast.error('Provide Valid Details');
     return;
   }
@@ -43,7 +55,7 @@ const BuyModules = () => {
     mobile
   }
   setLoading(true)
-  const res = await apiConnector('POST', auxillary.postTalkExport, bodyToSend )
+  const res: any = await apiConnector('POST', auxillary.postTalkExport, bodyToSend )
   setLoading(false)
   if(res?.data?.success){
     toast.success('Details Send')
@@ -75,7 +87,7 @@ const BuyModules = () => {
         </div>
       </div>
         {
-          courses.length > 0 ? <div className=' p-4 grid grid-cols-3 gap-3'>
+          courses?.length > 0 ? <div className=' p-4 grid grid-cols-3 gap-3'>
                                   {
                                     //@ts-ignore
                                   courses?.map((course, index) => <ModuleCard {...course}/>)

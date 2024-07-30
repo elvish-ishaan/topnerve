@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  {  useState } from 'react'
 import ProfileHeader from '../components/ProfileHeader'
 import apiConnector from '../apiConnector'
 import { auth } from '../backendUrls/auth'
@@ -7,19 +7,13 @@ import toast from 'react-hot-toast'
 import { settings } from '../backendUrls/settings'
 import { setUser } from '../slices/auth'
 import LoadingButton from '../components/LoadingButton'
+import { IRootState } from '../Store'
 
-
-interface UploadData {
-  firstName: string,
-  lastName: string,
-  mobile: number | null,
-  bio: string
-}
 
 
 const UpdateProfile = () => {
   const dispatch = useDispatch()
-  const {user} = useSelector((state) => state.auth)
+  const {user} = useSelector((state: IRootState) => state.auth)
   //check user from localStorage
   const getLocalUser: any | undefined = localStorage.getItem('user')
   const LocalUser = JSON.parse(getLocalUser)
@@ -29,8 +23,8 @@ const UpdateProfile = () => {
     newPassword: '',
     confirmNewPassword: ''                    
   })
-  const [profile, setProfile] = useState(null)
-  const [updateProfile, setUpdateProfile] = useState<UploadData>({
+  const [profile, setProfile] = useState<any>(null)
+  const [updateProfile, setUpdateProfile] = useState<any>({
     firstName: LocalUser?.additionalDetails?.firstName || '',
     lastName: LocalUser?.additionalDetails?.lastName || '',
     mobile: LocalUser?.additionalDetails?.mobile || null,
@@ -45,7 +39,7 @@ const UpdateProfile = () => {
   };
   //hanldle profile info change
   const handleProfileChange = (e: any) => {
-    setUpdateProfile((prev) => ({
+    setUpdateProfile((prev: any) => ({
       ...prev, 
       [e.target.name]: e.target.value
     }));
@@ -57,7 +51,7 @@ const UpdateProfile = () => {
     //validation
     handleValidation(data)
     setPasswordLoading(true)
-    const res = await apiConnector("POST", auth.changePassword, data, {'Content-Type': 'application/json'} )
+    const res: any = await apiConnector("POST", auth.changePassword, data, {'Content-Type': 'application/json'} )
     setPasswordLoading(false)
     if(res?.data?.success == true) {
       toast.success('Password Updated')
@@ -91,7 +85,7 @@ const UpdateProfile = () => {
     formData.append('bio', updateProfile.bio)
     
     setProfileLoading(true)
-    const res = await apiConnector('POST',settings.UpdateProfile ,formData, {'Content-Type': 'multipart/form-data'})
+    const res: any = await apiConnector('POST',settings.UpdateProfile ,formData, {'Content-Type': 'multipart/form-data'})
     setProfileLoading(false)
     if(res?.data?.success == true){
       toast.success('Profile Updated')

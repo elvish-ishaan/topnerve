@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import tempback from '../assets/dashboard/tempback.png'
 import { useSelector } from 'react-redux'
 import Avatar, { genConfig } from 'react-nice-avatar'

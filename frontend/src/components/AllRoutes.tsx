@@ -1,6 +1,4 @@
-import React from 'react'
-import { Router, Routes, Route } from 'react-router'
-import Dashboard from '../pages/Dashboard'
+import { Routes, Route } from 'react-router'
 import Analysis from '../pages/Analysis'
 import Overview from '../pages/Overview'
 import ExerciseEng from '../pages/ExerciseEng'
@@ -21,6 +19,8 @@ import PaymentFailure from '../pages/PaymentFailed'
 import CreateSchedule from '../pages/CreateSchedule'
 import NotFound from '../pages/NotFound'
 import MyTests from '../pages/MyTests'
+import ContactUs from '../pages/ContactUs'
+import AboutUs from '../pages/AboutUs'
 
 
 
@@ -45,7 +45,9 @@ const AllRoutes = () => {
              <Route path='/my-tests' element={<MyTests/>}/>
              <Route path='/payment/success' element={<PaymentSuccess/>}/>    
              <Route path='/payment/failed' element={<PaymentFailure/>}/>
-             <Route path='/schedules/add-schedule' element={<CreateSchedule/>}/>  
+             <Route path='/schedules/add-schedule' element={<CreateSchedule/>}/> 
+             <Route path='/contact-us' element={<ContactUs/>}/>
+             <Route path='/about-us' element={<AboutUs/>}/>
              <Route path='*' element={<NotFound/>}/>
         </Routes >
     

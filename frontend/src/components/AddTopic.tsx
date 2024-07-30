@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import apiConnector from '../apiConnector'
 import { course } from '../backendUrls/course'
 import toast from 'react-hot-toast'
 import LoadingButton from './LoadingButton'
 
+//@ts-ignore
 const AddTopic = ({uploadedQuesId, setUploadedTopicId}) => {
     const [loading, setLoading] = useState<boolean>(false)
     const [topic, setTopic] = useState({
@@ -22,11 +23,11 @@ const AddTopic = ({uploadedQuesId, setUploadedTopicId}) => {
     //hanlde add topic
     const addTopic = async () => {
        setLoading(true)
-        const res = await apiConnector('POST', course.addTopic, topic, {'Content-Type': 'application/json'})
+        const res: any = await apiConnector('POST', course.addTopic, topic, {'Content-Type': 'application/json'})
         setLoading(false)
        if(res?.data?.success == true) {
         toast.success('Topic Added')
-        setUploadedTopicId(prev => [
+        setUploadedTopicId((prev: any) => [
           ...prev,
           res?.data?.createdTopic?._id
          ])

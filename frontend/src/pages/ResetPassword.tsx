@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import resetpass from '../assets/auth/resetpasword.png'
 import apiConnector from '../apiConnector'
 import { auth } from '../backendUrls/auth'
@@ -12,7 +12,7 @@ const ResetPassword = () => {
     const bodyToSend = {
       email: email
     }
-    const res = await apiConnector('POST', auth.resetPassword, JSON.stringify(bodyToSend), {'Content-Type': 'application/json'})
+    const res:any = await apiConnector('POST', auth.resetPassword, JSON.stringify(bodyToSend), {'Content-Type': 'application/json'})
     if(res?.data?.success == true) {
       toast.success(res?.data?.message)
     }else{

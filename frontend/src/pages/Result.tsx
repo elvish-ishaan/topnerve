@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import apiConnector from '../apiConnector'
 import { useParams } from 'react-router'
 import award from '../assets/dashboard/award.png'
@@ -7,12 +7,12 @@ import LoadingSpinner from '../components/LoadingSpinner'
 
 const Result = () => {
     const params = useParams()
-    const [result, setResult] = useState(null)
+    const [result, setResult] = useState<any>(null)
     const [loading, setLoading] = useState<boolean>(false)
     useEffect(()=> {
         const fetchResult = async () => {
             setLoading(true)
-            const res = await apiConnector('GET', test.getTest + params.id, {'Content-Type': 'application/json'} )
+            const res: any = await apiConnector('GET', test.getTest + params.id, {'Content-Type': 'application/json'} )
             setLoading(false)
             setResult(res?.data?.test)
         }

@@ -1,14 +1,15 @@
 import { MdDeleteOutline } from "react-icons/md";
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const CreateSchedule = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<any[]>([]);
   const [taskName, setTaskName] = useState('');
   const [taskTime, setTaskTime] = useState('');
 
   // Load tasks from local storage on component mount
   useEffect(() => {
+    //@ts-ignore
     const storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
     setTasks(storedTasks);
   }, []);
@@ -27,7 +28,7 @@ const CreateSchedule = () => {
     }
   };
 
-  const handleDeleteTask = (id) => {
+  const handleDeleteTask = (id: number) => {
     const updatedTasks = tasks.filter(task => task.id !== id);
     setTasks(updatedTasks);
   };

@@ -1,18 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import LoadingSpinner from '../components/LoadingSpinner'
 import { useSelector } from 'react-redux'
 import apiConnector from '../apiConnector'
 import { course } from '../backendUrls/course'
-import ModuleCard from '../components/ModuleCard'
 import { AiOutlineLike } from 'react-icons/ai'
-import { FaRupeeSign } from 'react-icons/fa'
 import thumbnail from '../assets/dashboard/tempback.png'
 import notFound from '../assets/dashboard/notFound.png'
-import { useNavigate } from 'react-router'
 
 const MyModules = () => {
     const { user } = useSelector((state: any) => state.auth)
-    const navigate = useNavigate()
     const [modules, setModules] = useState([])
     const [loading, setLoading] = useState(false)
     useEffect(()=> {

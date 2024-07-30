@@ -3,7 +3,7 @@ import { navLinks } from '../constantData/navLinks'
 import Switch from '@mui/material/Switch';
 import logo from '../assets/logos/comLogo.png'
 import { useSelector } from 'react-redux';
-
+import flag from '../assets/New folder/india.png'
 
 
 const Navbar = () => {
@@ -19,7 +19,10 @@ const Navbar = () => {
     document.documentElement.classList.remove('dark')
     localStorage.setItem('tp-theme', 'light')
   }
-
+ 
+ setTimeout(() => {
+    
+ }, 6000);
 
   return (
     <nav className=' flex p-3 border-b-btn-main border-b-2 bg-transparent'>
@@ -27,7 +30,9 @@ const Navbar = () => {
              <div className=' flex gap-14 align-baseline'>
                 <div className=' flex gap-2 items-baseline '>
                    <img className=' size-8' src={logo} alt="banner" />
-                   <p className=' relative top-0 font-medium tracking-wider text-2xl self-center dark:text-white'>TOPNERVE</p>
+                   <p className=' relative top-0 font-medium tracking-wider
+                    text-2xl self-center dark:text-white from-orange-400 via-white to-green-400'>NAFRI</p>
+                    <img className=' size-4' src={flag} alt="indian flag" />
                 </div>
                 {/* rerturn navbar links if user logged out */}
                 {

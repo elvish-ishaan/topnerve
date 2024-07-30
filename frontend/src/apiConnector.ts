@@ -25,6 +25,7 @@ export const apiConnector = async <T>(
   } catch (error) {
     // Handle error accordingly
     console.error('API call failed:', error);
+    //@ts-ignore
     throw error?.response?.data?.message
   }
 };

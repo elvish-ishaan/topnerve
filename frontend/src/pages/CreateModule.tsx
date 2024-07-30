@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import StepperComp from '../components/StepperComp'
 import { AddQuestions } from '../components/AddQuestions'
 import AddTopic from '../components/AddTopic'
-import { Step } from '@mui/material'
 import AddChap from '../components/AddChap'
 import AddSubject from '../components/AddSubject'
 import PubModule from '../components/PubModule'
@@ -31,15 +30,16 @@ const CreateModule = () => {
       curresntSteps == 2 ? <AddTopic uploadedQuesId={uploadedQuesId} setUploadedTopicId={setUploadedTopicId}/> :
       curresntSteps == 3 ? <AddChap uploadedTopicId={uploadedTopicId} setUploadedChap={setUploadedChap} /> :
       curresntSteps == 4 ? <AddSubject uploadedChap={uploadedChap} setUploadedSub={setUploadedSub} /> :
+      // @ts-ignore
       curresntSteps == 5 ? <PubModule uploadedSub={uploadedSub}/> : null
      }
      </div>
      <div className=' w-full flex justify-between p-8'>
         <button className=' py-2 px-4 rounded-md bg-btn-main text-white font-medium hover:bg-blue-950'
-        onClick={()=> setCurrentSteps(prev => prev-1)}
+        onClick={()=> setCurrentSteps((prev: number) => prev-1)}
         >Back</button>
         <button className=' py-2 px-4 rounded-md bg-btn-main text-white font-medium hover:bg-blue-950'
-         onClick={()=> setCurrentSteps(prev => prev+1)}
+         onClick={()=> setCurrentSteps((prev: number) => prev+1)}
         >Next</button>
      </div>
   </section>

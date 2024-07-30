@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router'
 import  student  from '../assets/student.png'
 import AvatarGrp from './AvatarGrp'
-import CarouselComp from './CarouselComp'
 import Feat from './Feat'
 
 
