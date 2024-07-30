@@ -15,17 +15,9 @@ export const navLinks = [
     path: '/',
   },
   {
-    title: 'Discover',
-    path: '/discover',
-  },
-  {
     title: 'About',
     path: '/about-us',
   },
-  {
-    title: 'Contact Us',
-    Path: '/contact-us',
-  }
 ];
 
 export const sidebarLinks: any = [
