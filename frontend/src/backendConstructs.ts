@@ -1,1 +1,1 @@
-export const BACKEND_DOMAIN = 'https://api.nafri/api/v1'
+export const BACKEND_DOMAIN = 'https://api.nafri.in/api/v1'
