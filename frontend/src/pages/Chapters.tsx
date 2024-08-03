@@ -1,5 +1,5 @@
 import  { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router'
+import { useParams } from 'react-router'
 import apiConnector from '../apiConnector';
 import { course } from '../backendUrls/course';
 import LoadingSpinner from '../components/LoadingSpinner';
