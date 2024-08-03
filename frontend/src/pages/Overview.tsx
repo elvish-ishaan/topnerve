@@ -60,7 +60,7 @@ const Overview = () => {
              <div className=' w-[700px] h-[300px]'>
              {
               //@ts-ignore
-               questionData.length == 0 ? <p className=' text-center relative top-32 font-semibold'>No data Found</p> : <Graph noOfQuestions={questionData}/>
+               questionData?.length == 0 ? <p className=' text-center relative top-32 font-semibold'>No data Found</p> : <Graph noOfQuestions={questionData}/>
              }
              </div>
                 </div>
@@ -97,7 +97,7 @@ const Overview = () => {
                     </div>
                    {
                     // if there are shcdules render or show not found
-                     schedules.length > 0 ? <div className=' py-2'>
+                     schedules?.length > 0 ? <div className=' py-2'>
                         {
                           schedules?.map((task: any) => <div className=' w-full flex justify-between px-4 py-2 items-center border-b border-btn-lmain'>
                             <FaRegHandPointRight className=' text-btn-main'/>
