@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router';
 import apiConnector from '../apiConnector';
 import { course } from '../backendUrls/course';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { NavLink } from 'react-router-dom';
 
 const Topics = () => {
   const param = useParams();
@@ -29,11 +30,11 @@ const Topics = () => {
                 {
                   topics.map((topic: any, index: number) => {
                     return (
-                      <button key={index} className=' border-2 rounded-md py-3 px-4 shadow-md bg-slate-800 text-white text-2xl
+                      <NavLink key={index} className=' border-2 rounded-md py-3 px-4 shadow-md bg-slate-800 text-white text-2xl
                          hover:bg-slate-900 hover:scale-100'
-                          onClick={()=> navigate(`/exercise-engine/${topic?._id}`) }>
+                          to={`/exercise-engine/${topic?._id}`}>
                          <h1>{topic?.title?.toUpperCase()}</h1>
-                      </button>
+                      </NavLink>
                     )
                   })
                 }
