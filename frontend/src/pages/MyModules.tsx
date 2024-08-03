@@ -6,6 +6,7 @@ import { course } from '../backendUrls/course'
 import { AiOutlineLike } from 'react-icons/ai'
 import thumbnail from '../assets/dashboard/tempback.png'
 import notFound from '../assets/dashboard/notFound.png'
+import { NavLink } from 'react-router-dom'
 
 const MyModules = () => {
     const { user } = useSelector((state: any) => state.auth)
@@ -47,9 +48,9 @@ const MyModules = () => {
                                 <p className='text-gray-800 dark:text-gray-300'>10.5K</p>
                               </div>
                             </div>
-                            <a href={`/my-modules/${module._id}/practice`} className='w-full'>
+                            <NavLink to={`/my-modules/${module._id}/practice`} className='w-full'>
                               <button className='w-full font-medium text-lg text-white rounded-md bg-blue-600 hover:bg-blue-700 py-2 px-4 transition-colors duration-300'>Practice</button>
-                            </a>
+                            </NavLink>
                            </div>
                          </div>
                       )
