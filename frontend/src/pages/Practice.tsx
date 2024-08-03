@@ -7,7 +7,6 @@ import { NavLink } from 'react-router-dom'
 
 const Practice = () => {
   const params = useParams()
-  const navigate = useNavigate()
   const [moduleData , setModuleData] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(false)
 

@@ -8,7 +8,6 @@ import { NavLink } from 'react-router-dom';
 const Topics = () => {
   const param = useParams();
   const[topics, setTopics] = useState<any>([])
-  const navigate =  useNavigate()
   const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(()=>{

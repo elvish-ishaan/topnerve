@@ -7,7 +7,6 @@ import { NavLink } from 'react-router-dom';
 
 const Chapters = () => {
   const param = useParams();
-  const navigate = useNavigate()
   const[chapters,setChapters] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(false)
 
