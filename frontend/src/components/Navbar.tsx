@@ -4,7 +4,7 @@ import Switch from '@mui/material/Switch';
 import logo from '../assets/logos/comLogo.png'
 import { useSelector } from 'react-redux';
 import flag from '../assets/New folder/india.png'
-
+import {NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   const {token} = useSelector((state: any) => state.auth)
@@ -40,10 +40,10 @@ const Navbar = () => {
                   {
                     navLinks.map((link, index) => {
                      return (
-                        <a className=' text-btn-main font-medium py-2 hover:border-b-2 hover:border-btn-main'
-                         key={index} href={link.path}
+                        <NavLink className=' text-btn-main font-medium py-2 hover:border-b-2 hover:border-btn-main'
+                         key={index} to={link.path}
                          >
-                        {link.title}</a>
+                        {link.title}</NavLink>
                      )
                     })
                   }
@@ -55,8 +55,8 @@ const Navbar = () => {
              <div className=' flex gap-5'>
                 {
                   !token ? <div>
-                      <a href="/login"><button className=' p-2 rounded-lg font-medium text-btn-main border-2 border-btn-main hover:bg-slate-300'>Log In</button></a>
-                      <a href="/signup"> <button className=' bg-btn-main p-2 rounded-lg font-medium text-white hover:bg-blue-900'>Sign Up</button></a>
+                      <NavLink to="/login"><button className=' p-2 rounded-lg font-medium text-btn-main border-2 border-btn-main hover:bg-slate-300'>Log In</button></NavLink>
+                      <NavLink to="/signup"> <button className=' bg-btn-main p-2 rounded-lg font-medium text-white hover:bg-blue-900'>Sign Up</button></NavLink>
                   </div>
                   : 
                   null
